@@ -1,6 +1,6 @@
 # AI 뉴스 브리핑 에이전트 📰
 
-> Langchain ReAct 에이전트가 키워드 기반 최신 뉴스를 검색·분석해 브리핑 자동 생성
+> 키워드를 입력하면 Langchain Tool Calling 에이전트가 오늘자 뉴스를 검색·분석해 브리핑 자동 생성
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
 ![Langchain](https://img.shields.io/badge/Langchain-0.2.16-green)
@@ -11,8 +11,8 @@
 
 ## 프로젝트 소개
 
-키워드를 입력하면 ReAct 에이전트가 Tavily 검색 툴을 활용해 최신 뉴스를 수집하고,
-핵심 요약 · 주요 뉴스 · 시사점으로 구성된 브리핑 리포트를 자동 생성한다.
+키워드를 입력하면 AI 에이전트가 네이버 뉴스 API로 오늘자 기사를 수집하고,
+핵심 요약·주요 뉴스·감성 분석·주식 시세·오늘의 이슈를 자동으로 생성한다.
 
 ---
 
