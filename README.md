@@ -29,18 +29,21 @@
 ---
 
 ## 아키텍처
+
+```
 키워드 입력
-|
+     ↓
 Tool Calling 에이전트 (Langchain)
-├── search_keyword_news (네이버 뉴스 API)
-└── search_related_news (네이버 뉴스 API)
-|
+     ├── search_keyword_news (네이버 뉴스 API)
+     └── search_related_news (네이버 뉴스 API)
+     ↓
 병렬 직접 호출
-├── 감성 분석 (GPT-4o-mini)
-├── 주식 시세 (yfinance)
-└── 오늘의 이슈 (네이버 뉴스 API + GPT-4o-mini)
-|
+     ├── 감성 분석 (GPT-4o-mini)
+     ├── 주식 시세 (yfinance)
+     └── 오늘의 이슈 (네이버 뉴스 API + GPT-4o-mini)
+     ↓
 Streamlit UI 출력
+```
 
 ---
 
