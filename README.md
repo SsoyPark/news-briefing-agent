@@ -90,9 +90,10 @@ docker compose up --build
 
 ## 스크린샷
 
-<img width="1918" height="864" alt="image" src="https://github.com/user-attachments/assets/28756de7-69a8-4741-b301-758ef313eee7" />
-<img width="1915" height="770" alt="image" src="https://github.com/user-attachments/assets/cfeb3084-7321-43fa-992d-89717c363a16" />
-<img width="1906" height="793" alt="image" src="https://github.com/user-attachments/assets/21329904-dcb9-45c4-8e56-cb6872620139" />
+<img width="1919" height="867" alt="image" src="https://github.com/user-attachments/assets/9f221378-ce96-4214-8ed9-74a946564ea1" />
+<img width="1919" height="781" alt="image" src="https://github.com/user-attachments/assets/81b1ed05-ba9c-4e2e-aa16-08d6aa9c1469" />
+<img width="1917" height="862" alt="image" src="https://github.com/user-attachments/assets/d4305d04-bd48-4501-88d4-7f536e2aa7cf" />
+
 
 
 ---
