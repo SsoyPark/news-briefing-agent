@@ -18,10 +18,12 @@
 
 ## 주요 기능
 
-- **ReAct 에이전트** — Reasoning + Acting 패턴으로 검색 → 분석 → 브리핑 자동 수행
-- **Tavily 검색 툴** — AI 최적화 웹 검색으로 최신 뉴스 수집
-- **구조화 브리핑** — 핵심 요약 / 주요 뉴스 3개 / 시사점 형식으로 출력
-- **Streamlit UI** — 키워드 입력 후 바로 결과 확인
+- **Langchain Tool Calling 에이전트** — LLM이 상황에 맞게 툴을 선택·실행
+- **오늘자 뉴스 브리핑** — 네이버 뉴스 API 기반 최신 뉴스 수집 및 요약
+- **감성 분석** — 주요 뉴스 3개의 긍정/부정/중립 비율 도넛 차트 시각화
+- **주식 시세** — 기업명 검색 시 상세 시세, 일반 키워드 검색 시 코스피 상위 5개
+- **오늘의 이슈** — 검색 키워드와 무관한 오늘의 핫한 뉴스 3개
+- **세션 유지** — 새로고침해도 검색 결과 유지
 - **Docker** — 단일 명령어로 실행 환경 구성
 
 ---
@@ -29,11 +31,14 @@
 ## 아키텍처
 키워드 입력
 ↓
-ReAct 에이전트 (Langchain)
+Tool Calling 에이전트 (Langchain)
+├── search_keyword_news (네이버 뉴스 API)
+└── search_related_news (네이버 뉴스 API)
 ↓
-Tavily 검색 툴 실행
-↓
-결과 분석 및 브리핑 생성 (GPT-4o-mini)
+병렬 직접 호출
+├── 감성 분석 (GPT-4o-mini)
+├── 주식 시세 (yfinance)
+└── 오늘의 이슈 (네이버 뉴스 API + GPT-4o-mini)
 ↓
 Streamlit UI 출력
 
@@ -43,9 +48,11 @@ Streamlit UI 출력
 
 | 구분 | 기술 |
 |---|---|
-| 에이전트 | Langchain 0.2.16 / ReAct |
+| 에이전트 | Langchain 0.2.16 / Tool Calling Agent |
 | LLM | OpenAI GPT-4o-mini |
-| 검색 | Tavily API |
+| 뉴스 검색 | 네이버 뉴스 API |
+| 주식 시세 | yfinance |
+| 감성 분석 | GPT-4o-mini + Plotly |
 | UI | Streamlit |
 | 배포 | Docker / Docker Compose |
 
@@ -57,7 +64,7 @@ Streamlit UI 출력
 
 - Docker Desktop 설치
 - OpenAI API 키
-- Tavily API 키
+- 네이버 개발자 센터 Client ID / Secret (https://developers.naver.com)
 
 ### 실행
 
@@ -75,6 +82,15 @@ docker compose up --build
 ```
 
 브라우저에서 `http://localhost:8501` 접속
+
+---
+
+## 스크린샷
+
+<img width="1918" height="864" alt="image" src="https://github.com/user-attachments/assets/28756de7-69a8-4741-b301-758ef313eee7" />
+<img width="1915" height="770" alt="image" src="https://github.com/user-attachments/assets/cfeb3084-7321-43fa-992d-89717c363a16" />
+<img width="1906" height="793" alt="image" src="https://github.com/user-attachments/assets/21329904-dcb9-45c4-8e56-cb6872620139" />
+
 
 ---
 
