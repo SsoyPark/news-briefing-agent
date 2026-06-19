@@ -1,6 +1,7 @@
 # AI 뉴스 브리핑 에이전트 📰
 
 > 키워드를 입력하면 오늘자 뉴스를 검색·분석해 브리핑을 자동 생성하는 AI 에이전트.
+> 
 > **V1 (LangChain Agent)** 에서 **V2 (MCP Server)** 로 아키텍처를 발전시킨 내용을 정리했다.
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue)
@@ -13,6 +14,7 @@
 ## 프로젝트 개요
 
 키워드를 입력하면 네이버 뉴스 API로 오늘자 기사를 수집하고, 핵심 요약·감성 분석·주식 시세·오늘의 이슈를 자동으로 생성하는 뉴스 브리핑 에이전트이다.
+
 같은 기능을 두 가지 아키텍처로 구현하며, Tool 설계를 발전시킨 과정을 담았다.
 
 | | V1 — LangChain | V2 — MCP |
@@ -35,25 +37,9 @@
 기능은 그대로 유지하면서 내부 구조만 개선했다.
 
 > 두 버전은 동시에 쓰는 것이 아니라 용도에 따라 선택 가능
+> 
 > 독립적인 서비스가 필요하면 V1, 다른 AI 호스트에 도구를 제공하려면 V2.
 
----
-
-## 폴더 구조
-
-\`\`\`
-news-briefing-agent/
-├── v1-langchain/   # V1: LangChain 에이전트 + Streamlit UI
-│   ├── app/
-│   ├── Dockerfile
-│   └── requirements.txt
-└── v2-mcp/         # V2: MCP 서버 (FastMCP)
-    ├── server.py
-    ├── requirements.txt
-    └── README.md
-\`\`\`
-
-각 버전의 상세 실행 방법은 해당 폴더 README에 작성
 
 ---
 
